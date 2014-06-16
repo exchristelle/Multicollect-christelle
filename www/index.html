@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <title>Collecting</title>
+    </head>
+    <body>
+       
+       
+        <div id='blocinit' class="app">
+            <h1>Apache Cordova</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/load_and_read.js"></script>
+         
+    
+       <!-- <div id="pagesettings">
+                <button id="chargement">Get LSS</button>
+        </div>  -->
+        
+        <script type="text/javascript"> 
+        var questionText = "nondef";
+        var button1 = document.getElementById('chargement');  
+      console.log('cc');
+        button1.onclick = makeCorsRequest('http://mcp.ocd-dbs-france.org/lss/lss_934317');
+        </script>  
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+            <!--<a href="javascript:;" onClick="begin_acquisition();">Il y a un questionnaire disponible</a>
+            </br>
+            <a href="javascript:;" onClick="show_settings();">Reglage</a>-->
+            
+		<div class="btn_reglages"><a href="javascript:;" onClick="show_settings();"><img src="img/reglages.png" /></a></div>
+ 		<div class="titre_journal">Journal de bord</div>
+        <div id='home'>
+           
+            <div class="question">Vous avez un questionnaire à remplir</div>
+            
+            <div class="suite"><input type="button" value="Je remplis&#13;&#10;le questionnaire" onClick="window.location='testmulti0.html'"></div>        
+        </div>
+        
+        <div id='acquisition' style='display: none;'>
+            <span id='question1' font-size: 30pt></span>
+            <span id='answer1' font-size: 25pt></span>
+            
+            <br>Suite
+        </div>
+        
+        <div id='settings' style='display: none;'>
+             <div class="question">Vous participez au suivi : 156984<br />Nouveaux suivi : </div>
+            
+            <form NAME="myform" ACTION="" METHOD="GET">
+            <INPUT TYPE="text" NAME="inputbox" VALUE=""></br>
+            <INPUT TYPE="button" NAME="button" Value="Charger" onClick="testNewStudy(this.form)">
+            </form>
+		   <div class="suite"><input type="button" value="Retour Accueil" onClick="go_home();"></div>        
+        </div>
+        
+        
+        
+    </body>
+</html>
